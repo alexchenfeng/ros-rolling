@@ -75,3 +75,6 @@ libzenohcxx:
 
 libhwloc:
   - 2.12.2
+
+libcoal:
+  - 3.0.2

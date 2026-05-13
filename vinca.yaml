@@ -5,8 +5,8 @@ conda_index:
   - robostack.yaml
   - packages-ignore.yaml
 
-# Reminder for next full rebuild, the next build number should be 19
-build_number: 18
+# Reminder for next full rebuild, the next build number should be 21
+build_number: 20
 
 mutex_package:
   name: "ros2-distro-mutex"
