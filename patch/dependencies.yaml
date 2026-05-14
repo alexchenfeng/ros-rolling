@@ -255,7 +255,7 @@ autoware_utils_pcl:
 autoware_utils_debug:
   add_host: ["fmt"]
 autoware_trajectory:
-  add_host: ["fmt"]
+  add_host: ["fmt", "cpp-expected"]
 rclpy:
   add_host: ["typing_extensions"]
   add_run: ["typing_extensions"]

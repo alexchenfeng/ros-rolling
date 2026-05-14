@@ -27,6 +27,54 @@ index b2ce72b..35ba18f 100644
  namespace autoware::experimental::trajectory::interpolator
  {
  
+diff --git a/include/autoware/trajectory/interpolator/result.hpp b/include/autoware/trajectory/interpolator/result.hpp
+--- a/include/autoware/trajectory/interpolator/result.hpp
++++ b/include/autoware/trajectory/interpolator/result.hpp
+@@ -15,7 +15,7 @@
+ #ifndef AUTOWARE__TRAJECTORY__INTERPOLATOR__RESULT_HPP_
+ #define AUTOWARE__TRAJECTORY__INTERPOLATOR__RESULT_HPP_
+ 
+-#include <tl_expected/expected.hpp>
++#include <tl/expected.hpp>
+ 
+ #include <string>
+ 
+diff --git a/include/autoware/trajectory/utils/pretty_build.hpp b/include/autoware/trajectory/utils/pretty_build.hpp
+--- a/include/autoware/trajectory/utils/pretty_build.hpp
++++ b/include/autoware/trajectory/utils/pretty_build.hpp
+@@ -28,7 +28,7 @@
+ #include <range/v3/view/drop.hpp>
+ #include <range/v3/view/transform.hpp>
+ #include <range/v3/view/zip_with.hpp>
+-#include <tl_expected/expected.hpp>
++#include <tl/expected.hpp>
+ 
+ #include <autoware_internal_planning_msgs/msg/path_with_lane_id.hpp>
+ #include <autoware_planning_msgs/msg/path.hpp>
+diff --git a/include/autoware/trajectory/utils/reference_path.hpp b/include/autoware/trajectory/utils/reference_path.hpp
+--- a/include/autoware/trajectory/utils/reference_path.hpp
++++ b/include/autoware/trajectory/utils/reference_path.hpp
+@@ -17,7 +17,7 @@
+ 
+ #include "autoware/trajectory/forward.hpp"
+ 
+-#include <tl_expected/expected.hpp>
++#include <tl/expected.hpp>
+ 
+ #include <autoware_internal_planning_msgs/msg/path_with_lane_id.hpp>
+ 
+diff --git a/include/autoware/trajectory/utils/shift.hpp b/include/autoware/trajectory/utils/shift.hpp
+--- a/include/autoware/trajectory/utils/shift.hpp
++++ b/include/autoware/trajectory/utils/shift.hpp
+@@ -19,7 +19,7 @@
+ #include "autoware/trajectory/forward.hpp"
+ 
+ #include <range/v3/view/zip.hpp>
+-#include <tl_expected/expected.hpp>
++#include <tl/expected.hpp>
+ 
+ #include <string>
+ #include <utility>
 diff --git a/CMakeLists.txt b/CMakeLists.txt
 index 6ca7cd4..8490283 100644
 --- a/CMakeLists.txt
