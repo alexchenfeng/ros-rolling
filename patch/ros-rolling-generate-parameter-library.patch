@@ -1,0 +1,40 @@
+diff --git a/cmake/generate_parameter_library.cmake b/cmake/generate_parameter_library.cmake
+index ae96563..13ac4d7 100644
+--- a/cmake/generate_parameter_library.cmake
++++ b/cmake/generate_parameter_library.cmake
+@@ -96,22 +96,12 @@ macro(generate_parameter_library LIB_NAME YAML_FILE)
+     rsl::rsl
+     tcb_span::tcb_span
+     tl::expected
+-    # for backward compatibility
+-    # remove once this redirection is removed
+-    # https://github.com/PickNikRobotics/cpp_polyfills/pull/12
+-    tl_expected::tl_expected
+   )
+   install(DIRECTORY ${LIB_INCLUDE_DIR} DESTINATION include)
+   ament_export_dependencies(
+     fmt rclcpp rclcpp_lifecycle rsl tcb_span
+     # TODO(christophfroehlich): remove parameter_traits dependency after removal
+     parameter_traits
+     tl-expected
+-    # for backward compatibility
+-    # remove once this redirection is removed
+-    # https://github.com/PickNikRobotics/cpp_polyfills/pull/12
+-    tl_expected
+   )
+ endmacro()
+ 
+diff --git a/generate_parameter_library-extras.cmake b/generate_parameter_library-extras.cmake
+index ce5743a..1120cc4 100644
+--- a/generate_parameter_library-extras.cmake
++++ b/generate_parameter_library-extras.cmake
+@@ -32,11 +32,6 @@ find_package(rsl REQUIRED)
+ find_package(rclcpp_lifecycle REQUIRED)
+ find_package(tcb_span REQUIRED)
+ find_package(tl-expected REQUIRED)
+-# for backward compatibility
+-# remove once this redirection is removed
+-# https://github.com/PickNikRobotics/cpp_polyfills/pull/12
+-find_package(tl_expected REQUIRED)
+ 
+ include("${generate_parameter_library_DIR}/generate_parameter_library.cmake")
