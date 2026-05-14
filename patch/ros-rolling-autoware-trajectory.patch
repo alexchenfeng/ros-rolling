@@ -1,5 +1,30 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index ce27aa99..b949bd94 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -17,6 +17,8 @@ endif()
+ find_package(autoware_cmake REQUIRED)
+ autoware_package()
+ 
++find_package(tl-expected REQUIRED)
++
+ ament_auto_add_library(autoware_trajectory SHARED
+   src/threshold.cpp
+   src/point.cpp
+@@ -44,6 +46,11 @@ ament_auto_add_library(autoware_trajectory SHARED
+   src/utils/velocity.cpp
+ )
+ 
++target_link_libraries(autoware_trajectory
++  fmt::fmt
++  tl::expected
++)
++
+ if(BUILD_TESTING)
+   ament_auto_find_test_dependencies()
+ 
 diff --git a/include/autoware/trajectory/interpolator/detail/interpolator_common_interface.hpp b/include/autoware/trajectory/interpolator/detail/interpolator_common_interface.hpp
-index e339508816..67faba08c8 100644
+index e3395088..67faba08 100644
 --- a/include/autoware/trajectory/interpolator/detail/interpolator_common_interface.hpp
 +++ b/include/autoware/trajectory/interpolator/detail/interpolator_common_interface.hpp
 @@ -21,6 +21,7 @@
@@ -11,7 +36,7 @@ index e339508816..67faba08c8 100644
  namespace autoware::experimental::trajectory::interpolator::detail
  {
 diff --git a/include/autoware/trajectory/interpolator/lane_ids_interpolator.hpp b/include/autoware/trajectory/interpolator/lane_ids_interpolator.hpp
-index b2ce72b..35ba18f 100644
+index b2ce72bd..35ba18f5 100644
 --- a/include/autoware/trajectory/interpolator/lane_ids_interpolator.hpp
 +++ b/include/autoware/trajectory/interpolator/lane_ids_interpolator.hpp
 @@ -21,6 +21,12 @@
@@ -28,6 +53,7 @@ index b2ce72b..35ba18f 100644
  {
  
 diff --git a/include/autoware/trajectory/interpolator/result.hpp b/include/autoware/trajectory/interpolator/result.hpp
+index 5ea32574..38a4ba9d 100644
 --- a/include/autoware/trajectory/interpolator/result.hpp
 +++ b/include/autoware/trajectory/interpolator/result.hpp
 @@ -15,7 +15,7 @@
@@ -40,6 +66,7 @@ diff --git a/include/autoware/trajectory/interpolator/result.hpp b/include/autow
  #include <string>
  
 diff --git a/include/autoware/trajectory/utils/pretty_build.hpp b/include/autoware/trajectory/utils/pretty_build.hpp
+index 3f0e756f..46686f99 100644
 --- a/include/autoware/trajectory/utils/pretty_build.hpp
 +++ b/include/autoware/trajectory/utils/pretty_build.hpp
 @@ -28,7 +28,7 @@
@@ -52,6 +79,7 @@ diff --git a/include/autoware/trajectory/utils/pretty_build.hpp b/include/autowa
  #include <autoware_internal_planning_msgs/msg/path_with_lane_id.hpp>
  #include <autoware_planning_msgs/msg/path.hpp>
 diff --git a/include/autoware/trajectory/utils/reference_path.hpp b/include/autoware/trajectory/utils/reference_path.hpp
+index df92ef97..e5a4ca05 100644
 --- a/include/autoware/trajectory/utils/reference_path.hpp
 +++ b/include/autoware/trajectory/utils/reference_path.hpp
 @@ -17,7 +17,7 @@
@@ -64,6 +92,7 @@ diff --git a/include/autoware/trajectory/utils/reference_path.hpp b/include/auto
  #include <autoware_internal_planning_msgs/msg/path_with_lane_id.hpp>
  
 diff --git a/include/autoware/trajectory/utils/shift.hpp b/include/autoware/trajectory/utils/shift.hpp
+index 552cbed6..2ae854b6 100644
 --- a/include/autoware/trajectory/utils/shift.hpp
 +++ b/include/autoware/trajectory/utils/shift.hpp
 @@ -19,7 +19,7 @@
@@ -75,21 +104,6 @@ diff --git a/include/autoware/trajectory/utils/shift.hpp b/include/autoware/traj
  
  #include <string>
  #include <utility>
-diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 6ca7cd4..8490283 100644
---- a/CMakeLists.txt
-+++ b/CMakeLists.txt
-@@ -42,6 +42,10 @@ ament_auto_add_library(autoware_trajectory SHARED
-   src/utils/velocity.cpp
- )
- 
-+target_link_libraries(autoware_trajectory
-+  fmt::fmt
-+)
-+
- if(BUILD_TESTING)
-   ament_auto_find_test_dependencies()
- 
 diff --git a/src/utils/reference_path.cpp b/src/utils/reference_path.cpp
 index b8beb1b8..db8aec3f 100644
 --- a/src/utils/reference_path.cpp
