@@ -2,7 +2,7 @@ diff --git a/cmake/generate_parameter_library.cmake b/cmake/generate_parameter_l
 index ae96563..13ac4d7 100644
 --- a/cmake/generate_parameter_library.cmake
 +++ b/cmake/generate_parameter_library.cmake
-@@ -96,22 +96,12 @@ macro(generate_parameter_library LIB_NAME YAML_FILE)
+@@ -97,21 +97,13 @@ macro(generate_parameter_library LIB_NAME YAML_FILE)
      rsl::rsl
      tcb_span::tcb_span
      tl::expected
@@ -28,7 +28,7 @@ diff --git a/generate_parameter_library-extras.cmake b/generate_parameter_librar
 index ce5743a..1120cc4 100644
 --- a/generate_parameter_library-extras.cmake
 +++ b/generate_parameter_library-extras.cmake
-@@ -32,11 +32,6 @@ find_package(rsl REQUIRED)
+@@ -33,9 +33,5 @@ find_package(rsl REQUIRED)
  find_package(rclcpp_lifecycle REQUIRED)
  find_package(tcb_span REQUIRED)
  find_package(tl-expected REQUIRED)
