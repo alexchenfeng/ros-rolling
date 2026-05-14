@@ -1,5 +1,5 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index ce27aa99..b949bd94 100644
+index ce27aa99..8dd0c7db 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -17,6 +17,8 @@ endif()
@@ -11,7 +11,7 @@ index ce27aa99..b949bd94 100644
  ament_auto_add_library(autoware_trajectory SHARED
    src/threshold.cpp
    src/point.cpp
-@@ -44,6 +46,11 @@ ament_auto_add_library(autoware_trajectory SHARED
+@@ -44,6 +46,13 @@ ament_auto_add_library(autoware_trajectory SHARED
    src/utils/velocity.cpp
  )
  
@@ -19,6 +19,8 @@ index ce27aa99..b949bd94 100644
 +  fmt::fmt
 +  tl::expected
 +)
++
++ament_export_dependencies(fmt tl-expected)
 +
  if(BUILD_TESTING)
    ament_auto_find_test_dependencies()
