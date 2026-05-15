@@ -1,23 +1,13 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index ce27aa99..b949bd94 100644
+index ce27aa99..1cecb42e 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -17,6 +17,8 @@ endif()
- find_package(autoware_cmake REQUIRED)
- autoware_package()
- 
-+find_package(tl-expected REQUIRED)
-+
- ament_auto_add_library(autoware_trajectory SHARED
-   src/threshold.cpp
-   src/point.cpp
-@@ -44,6 +46,11 @@ ament_auto_add_library(autoware_trajectory SHARED
+@@ -44,6 +44,10 @@ ament_auto_add_library(autoware_trajectory SHARED
    src/utils/velocity.cpp
  )
  
 +target_link_libraries(autoware_trajectory
 +  fmt::fmt
-+  tl::expected
 +)
 +
  if(BUILD_TESTING)
@@ -104,6 +94,22 @@ index 552cbed6..2ae854b6 100644
  
  #include <string>
  #include <utility>
+diff --git a/package.xml b/package.xml
+index ce32e58e..3eda3284 100644
+--- a/package.xml
++++ b/package.xml
+@@ -26,10 +26,10 @@
+   <depend>fmt</depend>
+   <depend>geometry_msgs</depend>
+   <depend>lanelet2_core</depend>
++  <depend>libexpected-dev</depend>
+   <depend>rclcpp</depend>
+   <depend>tf2</depend>
+   <depend>tf2_geometry_msgs</depend>
+-  <depend>tl_expected</depend>
+   <depend>yaml-cpp</depend>
+ 
+   <test_depend>ament_cmake_auto</test_depend>
 diff --git a/src/utils/reference_path.cpp b/src/utils/reference_path.cpp
 index b8beb1b8..db8aec3f 100644
 --- a/src/utils/reference_path.cpp

@@ -256,6 +256,8 @@ autoware_utils_debug:
   add_host: ["fmt"]
 autoware_trajectory:
   add_host: ["fmt", "cpp-expected"]
+autoware_behavior_velocity_planner:
+  add_host: ["cpp-expected"]
 autoware_behavior_velocity_planner_common:
   add_host: ["cpp-expected"]
 rclpy:
