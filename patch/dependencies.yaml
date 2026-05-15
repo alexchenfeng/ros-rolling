@@ -260,6 +260,8 @@ autoware_behavior_velocity_planner:
   add_host: ["cpp-expected"]
 autoware_behavior_velocity_planner_common:
   add_host: ["cpp-expected"]
+autoware_behavior_velocity_stop_line_module:
+  add_host: ["cpp-expected"]
 rclpy:
   add_host: ["typing_extensions"]
   add_run: ["typing_extensions"]
