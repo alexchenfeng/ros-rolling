@@ -48,6 +48,7 @@ coal:
   generate_dummy_package_with_run_deps:
     dep_name: coal
     max_pin: 'x.x.x'
+    override_version: '3.0.2'
 eigenpy:
   generate_dummy_package_with_run_deps:
     dep_name: eigenpy
@@ -172,5 +173,3 @@ compressed_depth_image_transport:
 moveit_ros_visualization:
   additional_cmake_args: "-DCMAKE_WINDOWS_EXPORT_ALL_SYMBOLS=ON"
 # Remove all lines after this one on new full rebuild
-rviz_rendering:
-  build_number: 19
