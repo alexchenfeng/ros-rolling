@@ -175,4 +175,3 @@ moveit_ros_visualization:
 # Remove all lines after this one on new full rebuild
 ur_client_library:
   build_number: 21
-
