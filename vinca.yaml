@@ -23,7 +23,8 @@ mutex_package:
 packages_skip_by_deps:
   # Same rosdistro no-version issue; keep selected explicitly below via the
   # manually maintained additional recipe entry.
-  - ur_client_library
+  - rviz_visual_tools
+  - rplidar_ros
   - if: not linux
     then:
       - pendulum_control
